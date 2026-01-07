@@ -1,0 +1,23 @@
+name: Build and Test Demo
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Configure CMake
+      # -S .  = Source is current dir
+      # -B build = Build output goes to 'build' folder
+      run: cmake -S . -B build
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Run Tests
+      # We enter the build directory and run ctest
+      # --output-on-failure shows us logs if it crashes
+      run: cd build && ctest --output-on-failure
