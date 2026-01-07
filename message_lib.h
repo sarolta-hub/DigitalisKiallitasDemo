@@ -5,6 +5,7 @@
 
 inline std::string get_message() {
     // teritse vissza ezt a szoveget <Digitalis Kiallitas Demo>
+    return "Digitalis Kiallitas Demo"
 }
 
 #endif
